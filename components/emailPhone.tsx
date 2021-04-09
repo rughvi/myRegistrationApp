@@ -5,14 +5,14 @@ import TextInputView from './textInputView';
 import CancelContinueButton from './cancelContinueButton';
 import { faCoffee, faEnvelope, faPhoneAlt, faMobileAlt } from '@fortawesome/free-solid-svg-icons';
 import AppStyles from '../styles/appStyles';
-import {updateDetails, Details} from '../reducers/detailsReducer.ts';
+import {updateEmailPhone, Details} from '../reducers/detailsReducer.ts';
 
 const EmailPhone = ({navigation, props}) => {
     const details: Details = useSelector(state => state.detailsReducer);
     const dispatch = useDispatch();
     const onContinue = () => {
         //todo : validate
-        dispatch(updateDetails(details));
+        dispatch(updateEmailPhone(details));
         navigation.navigate('UsernameSuggestion');
     }
 

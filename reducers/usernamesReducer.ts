@@ -1,16 +1,16 @@
-export interface SuggestedUsernames {
+export interface SuggestedUsername {
     id: number;
     name: string;
 }
 
-const initialState: SuggestedUsernames[] = [];
+const initialState: SuggestedUsername[] = [];
 
-const UPDATE: string = 'update';
+const UPDATEUSERNAMESUGGESTIONS: string = 'updateusernamesuggestions';
 const RESET: string = 'reset';
 
-export const update = (usernames: SuggestedUsernames[]) => {
+export const update = (usernames: SuggestedUsername[]) => {
     return {
-        type: UPDATE,
+        type: UPDATEUSERNAMESUGGESTIONS,
         usernameSuggestions: usernames
     };
 }
@@ -21,10 +21,10 @@ export const reset = () => {
     }
 }
 
-const usernameReducer = (state: SuggestedUsernames[] = initialState, action) => {
+const usernameReducer = (state: SuggestedUsername[] = initialState, action) => {
     switch(action.type){
-        case UPDATE:
-            return <SuggestedUsernames[]>action.usernameSuggestions;
+        case UPDATEUSERNAMESUGGESTIONS:
+            return <SuggestedUsername[]>action.usernameSuggestions;
         break;
         case RESET:
             return initialState;

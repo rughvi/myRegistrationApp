@@ -18,6 +18,8 @@ const Summary = () => {
                 <Text></Text>
                 <Text style={styles.key}>Mobile</Text>
                 <Text style={styles.value}>{details.mobile}</Text>
+                <Text style={styles.key}>Username</Text>
+                <Text style={styles.value}>{details.username.name}</Text>
             </View>
             <View style={styles.section}>
                 <Text>{details.email}</Text>
