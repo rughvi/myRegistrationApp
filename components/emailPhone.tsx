@@ -8,7 +8,7 @@ import { faCoffee, faEnvelope, faPhoneAlt, faMobileAlt } from '@fortawesome/free
 import AppStyles from '../styles/appStyles';
 import {updateEmailPhone, Details} from '../reducers/detailsReducer.ts';
 
-const EmailPhone = ({navigation, props}) => {
+const EmailPhone = ({navigation, props, route}) => {
     const [email, setEmail] = useState('');
     const [phone, setPhone] = useState('');
     const [mobile, setMobile] = useState('');
@@ -41,7 +41,14 @@ const EmailPhone = ({navigation, props}) => {
         details.phone = phone;
         details.mobile = mobile;
         dispatch(updateEmailPhone(details));
-        navigation.navigate('UsernameSuggestion');
+
+        if(route?.params?.fromSummary){
+            navigation.navigate('Summary');
+        }
+        else{
+            navigation.navigate('UsernameSuggestion');
+        }
+        
     };
 
     const displayToast = (type:string, message1: string, message2: string) => {
