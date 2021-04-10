@@ -10,6 +10,7 @@
  import 'react-native-gesture-handler';
  import React from 'react';
  import {Provider} from 'react-redux';
+ import Toast from 'react-native-toast-message';
  import AppStore from './store/appStore';
  import AppNavigation from "./navigation/appNavigation.tsx";
  import mockAPIServer from './mockAPI/mockAPIServer.ts';
@@ -24,6 +25,7 @@
     return (
         <Provider store={AppStore}>
           <AppNavigation></AppNavigation>
+          <Toast ref={(ref) => Toast.setRef(ref)} />
         </Provider>
     );
   };

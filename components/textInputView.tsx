@@ -7,7 +7,11 @@ import AppStyles from '../styles/appStyles';
 const TextInputView = (props) => {
     return(
         <View style={AppStyles.textInputView}>
-            <TextInput style={AppStyles.textInput} placeholder={props.placeholder} onChangeText={props.onTextChanged} keyboardType={props.keyboardType}></TextInput>
+            <TextInput value={props.value} 
+                        style={AppStyles.textInput} 
+                        placeholder={props.placeholder} 
+                        onChangeText={props.onTextChanged} 
+                        keyboardType={props.keyboardType}></TextInput>
             <FontAwesomeIcon icon={ props.faicon } />
         </View>
     )
