@@ -11,6 +11,14 @@ const Summary = ({navigation}) => {
         navigation.navigate('EmailPhone', {fromSummary: true});
     };
 
+    const editUsername = () => {
+        navigation.navigate('UsernameSuggestion', {fromSummary: true});
+    };
+
+    const editTCs = () => {
+        navigation.navigate('TermsAndConditions', {fromSummary: true});
+    };
+
     const onSubmit = () => {
 
     }
@@ -19,7 +27,7 @@ const Summary = ({navigation}) => {
         <SafeAreaView style={styles.container}>
             <View style={styles.section}>                
                 <View style={styles.sectionHeader}>
-                    <Text style={styles.sectionHeader}>Details</Text>
+                    <Text style={styles.sectionHeader}>Email Phone</Text>
                     <TouchableOpacity onPress={editDetails}>                    
                         <FontAwesomeIcon icon={ faPen } />
                     </TouchableOpacity>
@@ -33,8 +41,26 @@ const Summary = ({navigation}) => {
                 <Text></Text>
                 <Text style={styles.key}>Mobile</Text>
                 <Text style={styles.value}>{details.mobile}</Text>
-                <Text style={styles.key}>Username</Text>
+            </View>
+            <View style={styles.section}>                
+                <View style={styles.sectionHeader}>
+                    <Text style={styles.sectionHeader}>Username</Text>
+                    <TouchableOpacity onPress={editUsername}>                    
+                        <FontAwesomeIcon icon={ faPen } />
+                    </TouchableOpacity>
+                </View>
+                {/* <Text style={styles.key}>Preferred</Text> */}
                 <Text style={styles.value}>{details.username.name}</Text>
+            </View>
+            <View style={styles.section}>                
+                <View style={styles.sectionHeader}>
+                    <Text style={styles.sectionHeader}>T&Cs</Text>
+                    <TouchableOpacity onPress={editTCs}>                    
+                        <FontAwesomeIcon icon={ faPen } />
+                    </TouchableOpacity>
+                </View>
+                {/* <Text style={styles.key}>Accepted</Text> */}
+                <Text style={styles.value}>{details.termsAndConditions}</Text>
             </View>
             <TouchableOpacity style={[AppStyles.continueButton, styles.submitButton]} onPress={() => onSubmit()}>
                 <Text style={{color:'white'}}>Submit</Text>

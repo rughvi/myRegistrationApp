@@ -9,7 +9,7 @@ import AppStyles from '../styles/appStyles.ts';
 import CancelContinueButton from './cancelContinueButton';
 import RadioButton from './radioButton';
 
-const UsernameSuggestion = ({navigation, props}) => {
+const UsernameSuggestion = ({navigation, props, route}) => {
     const progress: ProgressState = useSelector(state => state.progressReducer);
     const details:Details = useSelector(state => state.detailsReducer);
     const usernameSuggestions: SuggestedUsername[] = useSelector(state => state.usernameReducer)
@@ -33,7 +33,12 @@ const UsernameSuggestion = ({navigation, props}) => {
     }
 
     const onContinue = () => {
-        navigation.navigate('Summary')
+        if(route?.params?.fromSummary){
+            navigation.navigate('Summary');
+        }
+        else{
+            navigation.navigate('TermsAndConditions');
+        }        
     }
 
     return (        
