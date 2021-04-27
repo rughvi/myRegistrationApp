@@ -7,6 +7,7 @@ import AppStyles from '../styles/appStyles';
 
 const Summary = ({navigation}) => {
     const details = useSelector(state => state.detailsReducer);
+    const signature = useSelector(state => state.signatureReducer)
     const editDetails = () => {
         navigation.navigate('EmailPhone', {fromSummary: true});
     };
@@ -19,6 +20,10 @@ const Summary = ({navigation}) => {
         navigation.navigate('TermsAndConditions', {fromSummary: true});
     };
 
+    const editSignature = () => {
+        navigation.navigate('Signature', {fromSummary: true});
+    };
+    
     const onSubmit = () => {
 
     }
@@ -61,6 +66,16 @@ const Summary = ({navigation}) => {
                 </View>
                 {/* <Text style={styles.key}>Accepted</Text> */}
                 <Text style={styles.value}>{details.termsAndConditions}</Text>
+            </View>
+            <View style={styles.section}>                
+                <View style={styles.sectionHeader}>
+                    <Text style={styles.sectionHeader}>Signature</Text>
+                    <TouchableOpacity onPress={editSignature}>                    
+                        <FontAwesomeIcon icon={ faPen } />
+                    </TouchableOpacity>
+                </View>
+                {/* <Text style={styles.key}>Accepted</Text> */}
+                <Text style={styles.value}>{signature.data? 'Signed': 'Not signed'}</Text>
             </View>
             <TouchableOpacity style={[AppStyles.continueButton, styles.submitButton]} onPress={() => onSubmit()}>
                 <Text style={{color:'white'}}>Submit</Text>

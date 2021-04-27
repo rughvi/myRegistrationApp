@@ -7,6 +7,7 @@ import EmailPhone from '../components/emailPhone';
 import Summary from '../components/summary';
 import UsernameSuggestion from '../components/usernameSuggestion';
 import TermsAndConditions from '../components/termsAndConditions';
+import Signature from '../components/signature';
 
 const Stack = createStackNavigator();
 
@@ -19,6 +20,7 @@ const AppNavigation = () => {
                 <Stack.Screen name="UsernameSuggestion" component={UsernameSuggestion} options = {{ title: 'Username Suggestion'}} />
                 <Stack.Screen name="Summary" component={Summary} options = {{ title: 'Summary'}} />
                 <Stack.Screen name="TermsAndConditions" component={TermsAndConditions} options = {{ title: 'T&Cs'}} />
+                <Stack.Screen name="Signature" component={Signature} options = {{ title: 'Sign'}} />
             </Stack.Navigator>
         </NavigationContainer>          
   );

@@ -50,7 +50,6 @@ const detailsReducer = (state: Details = initialState, action) => {
             return <Details>{...state, username: action.value};
             break;
         case UPDATETERMSANDCONDITIONS:
-            console.log('UPDATETERMSANDCONDITIONS - ' + action.value);
             return <Details>{...state, termsAndConditions: action.value};
             break;
         default:

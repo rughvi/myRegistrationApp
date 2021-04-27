@@ -6,22 +6,23 @@ import AcceptDeclineButton from './acceptDeclineButton.tsx';
 import {Details} from '../reducers/detailsReducer.ts';
 import {updateTermsAndConditions} from '../reducers/detailsReducer.ts';
 import {TnCSelection} from '../enums/tncSelection';
+import AppStyles from '../styles/appStyles.ts';
 
 const TermsAndConditions = ({navigation, props, route}) => {
     const details:Details = useSelector(state => state.detailsReducer)
     const dispatch = useDispatch();
     const onAccept = () => {
         dispatch(updateTermsAndConditions(TnCSelection.Accept));
-        navigation.navigate('Summary');
+        navigation.navigate('Signature');
     };
 
     const onDecline = () => {
         dispatch(updateTermsAndConditions(TnCSelection.Decline));
-        navigation.navigate('Summary');
+        navigation.navigate('Signature');
     };
 
     return (
-        <SafeAreaView style={styles.container}>
+        <SafeAreaView style={AppStyles.container}>
             <WebView style={styles.section}
             source = {{ uri:
          'https://www.google.com/?gws_rd=cr,ssl&ei=SICcV9_EFqqk6ASA3ZaABA#q=tutorialspoint' }}>
@@ -34,9 +35,6 @@ const TermsAndConditions = ({navigation, props, route}) => {
 }
 
 const styles = StyleSheet.create({
-    container: {
-        flex:1
-    },
     section: {
         flex:1
     }
